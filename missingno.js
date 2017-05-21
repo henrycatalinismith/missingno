@@ -1,5 +1,5 @@
 const addAnotations = () => {
-  const selector = '.tweet .content .AdaptiveMedia img';
+  const selector = '.tweet .AdaptiveMedia img';
   const images = document.querySelectorAll(selector)
 
   Array.from(images)
