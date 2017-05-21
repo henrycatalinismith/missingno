@@ -5,12 +5,16 @@ const addAnotations = () => {
   Array.from(images)
     .filter(image => !image.getAttribute('data-missingno-annotated'))
     .map(image => {
+      image.setAttribute('data-missingno-annotated', true);
+
+      if (image.alt === '') {
+        return;
+      }
+
       const div = document.createElement('div');
       div.classList.add('missingno-annotation');
       div.innerHTML = image.alt;
       div.title = image.alt;
-
-      image.setAttribute('data-missingno-annotated', true);
       image.parentElement.appendChild(div);
     });
 }
