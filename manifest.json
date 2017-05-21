@@ -1,0 +1,21 @@
+{
+  "name": "Missingno",
+  "version": "0.0.1",
+  "author": "Henry Smith",
+  "manifest_version": 2,
+  "description": "Show the descriptions people put on the images they post on Twitter",
+  "homepage_url": "https://github.com/hnrysmth/missingno",
+  "permissions": ["http://twitter.com/*"],
+  "icons": {
+    "128": "logo128.png",
+    "16": "logo16.png",
+    "48": "logo48.png"
+  },
+  "content_scripts": [{
+    "matches": ["https://twitter.com/*"],
+    "css": ["missingno.css"],
+    "js": ["missingno.js"],
+    "run_at": "document_idle",
+    "all_frames": false
+  }]
+}
