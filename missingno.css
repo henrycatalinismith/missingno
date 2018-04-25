@@ -1,7 +1,6 @@
 .missingno-annotation {
   z-index: 1;
   position: absolute;
-  bottom: 0;
   left: 0;
 
   background: #14171a;
@@ -14,4 +13,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+}
+
+.AdaptiveMedia .missingno-annotation {
+  bottom: 0;
+}
+
+.Gallery-media .missingno-annotation {
+  top: 0;
 }
