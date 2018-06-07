@@ -24,7 +24,7 @@ const observer = new MutationObserver(mutations => {
 });
 
 const config = {
-  attributes: true,
+  attributes: false,
   childList: true,
   characterData: false,
   subtree: true,
