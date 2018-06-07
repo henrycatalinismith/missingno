@@ -8,6 +8,10 @@ const addAnotation = (image) => {
   image.parentElement.appendChild(div);
 }
 
+// What elements are we looking for? Special images
+const imgSelectors = [
+  '.tweet .AdaptiveMedia img'
+];
 
 
 const observer = new MutationObserver(mutations => {
