@@ -18,18 +18,18 @@ const callback = (mutations) => {
     // We're only interested in the nodes that were added by this mutationRecord
     const elements = Array.from(record.addedNodes)
       // We only care about nodes that are also Elements (nodeType 1)
-      .filter(node => node.nodeType === 1)
+      .filter(node => node.nodeType === 1);
 
     // Use imgSelectors to create an array of images we can add annotations to
-    const targetImgs = []
+    const targetImgs = [];
     imgSelectors.forEach(selector => {
       elements.forEach(element => {
         Array.from(element.querySelectorAll(selector))
           .forEach(selectedElem => {
-            targetImgs.push(selectedElem)
-          })
-      })
-    })
+            targetImgs.push(selectedElem);
+          });
+      });
+    });
     // Finally, filter out images without alt text and add the annotations
     targetImgs.filter(image => image.alt !== '').forEach(addAnotation)
   });
