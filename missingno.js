@@ -42,4 +42,16 @@ const config = {
   subtree: true,
 };
 
-observer.observe(document.body, config);
+// We want to target the observer to specific parts of the DOM tree
+// So we need more than one observer
+const targets = [
+  // Main page content container
+  document.querySelector('#doc'),
+  // Permalink content container
+  document.querySelector('#permalink-overlay')
+];
+
+targets.forEach(target => {
+  const observer = new MutationObserver(callback);
+  observer.observe(target, config);
+});
