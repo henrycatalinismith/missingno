@@ -1,8 +1,9 @@
 const addAnotations = () => {
-  const selector = '.tweet .AdaptiveMedia img';
-  const images = document.querySelectorAll(selector)
-
+  const images = document.querySelectorAll('.tweet .AdaptiveMedia img')
+  const galleryImages = document.querySelectorAll('.Gallery-media img')
+  
   Array.from(images)
+    .concat(Array.from(galleryImages))
     .filter(image => !image.getAttribute('data-missingno-annotated'))
     .map(image => {
       image.setAttribute('data-missingno-annotated', true);
