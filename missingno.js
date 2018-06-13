@@ -38,7 +38,9 @@ const callback = (mutations) => {
       });
     });
     // Finally, filter out images without alt text and add the annotations
-    targetImgs.filter(image => image.alt !== '').forEach(addAnotation)
+    targetImgs
+      .filter(image => image.alt !== '')
+      .forEach(addAnotation)
   });
 };
 
