@@ -25,10 +25,16 @@ const callback = (mutations) => {
     const targetImgs = [];
     imgSelectors.forEach(selector => {
       elements.forEach(element => {
-        Array.from(element.querySelectorAll(selector))
-          .forEach(selectedElem => {
-            targetImgs.push(selectedElem);
-          });
+        // If element is an <img>, we can't use querySelectorAll on it,
+        if (element.tagName === 'IMG') {
+          // so we just add it directly to targetImgs
+          targetImgs.push(element);
+        } else {
+          Array.from(element.querySelectorAll(selector))
+            .forEach(selectedElem => {
+              targetImgs.push(selectedElem);
+            });
+        }
       });
     });
     // Finally, filter out images without alt text and add the annotations
