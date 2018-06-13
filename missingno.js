@@ -34,13 +34,13 @@ const callback = (mutations) => {
             .forEach(selectedElem => {
               targetImgs.push(selectedElem);
             });
-        }
+        };
       });
     });
     // Finally, filter out images without alt text and add the annotations
     targetImgs
       .filter(image => image.alt !== '')
-      .forEach(addAnotation)
+      .forEach(addAnotation);
   });
 };
 
