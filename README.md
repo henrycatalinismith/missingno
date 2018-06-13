@@ -5,7 +5,7 @@ Makes people's Twitter image descriptions visible to help us sighted people
 understand what sort of things people write in them and how often they're
 present.
 
-![Available in the Chrome Web Store](ChromeWebStore_Badge_v2_340x96.png)
+[![Available in the Chrome Web Store](ChromeWebStore_BadgeWBorder_v2_206x58.png)](https://chrome.google.com/webstore/detail/missingno/apfmofeoejlelcaecnhilpjkoboacioe)
 
 License
 -------
