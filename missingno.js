@@ -11,7 +11,7 @@ const addAnotation = (image) => {
 // What elements are we looking for? Special images
 const imgSelectors = [
   '.tweet .AdaptiveMedia img',
-  '.Gallery-media img'
+  '.Gallery-media img.media-image'
 ];
 
 const callback = (mutations) => {
