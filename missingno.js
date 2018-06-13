@@ -55,7 +55,9 @@ const targets = [
   // Main page content container
   document.querySelector('#doc'),
   // Permalink content container
-  document.querySelector('#permalink-overlay')
+  document.querySelector('#permalink-overlay'),
+  // Gallery view
+  document.querySelector('.Gallery.with-tweet')
 ];
 
 targets.forEach(target => {
