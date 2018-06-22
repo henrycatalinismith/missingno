@@ -11,7 +11,7 @@ const addAnotation = (image) => {
 // What elements are we looking for? Special images
 const imgSelectors = [
   '.tweet .AdaptiveMedia img',
-  '.Gallery-media img'
+  '.Gallery-media img.media-image'
 ];
 
 const callback = (mutations) => {
@@ -25,14 +25,22 @@ const callback = (mutations) => {
     const targetImgs = [];
     imgSelectors.forEach(selector => {
       elements.forEach(element => {
-        Array.from(element.querySelectorAll(selector))
-          .forEach(selectedElem => {
-            targetImgs.push(selectedElem);
-          });
+        // If element is an <img>, we can't use querySelectorAll on it,
+        if (element.tagName === 'IMG') {
+          // so we just add it directly to targetImgs
+          targetImgs.push(element);
+        } else {
+          Array.from(element.querySelectorAll(selector))
+            .forEach(selectedElem => {
+              targetImgs.push(selectedElem);
+            });
+        };
       });
     });
     // Finally, filter out images without alt text and add the annotations
-    targetImgs.filter(image => image.alt !== '').forEach(addAnotation)
+    targetImgs
+      .filter(image => image.alt !== '')
+      .forEach(addAnotation);
   });
 };
 
@@ -49,7 +57,9 @@ const targets = [
   // Main page content container
   document.querySelector('#doc'),
   // Permalink content container
-  document.querySelector('#permalink-overlay')
+  document.querySelector('#permalink-overlay'),
+  // Gallery view
+  document.querySelector('.Gallery.with-tweet')
 ];
 
 targets.forEach(target => {
