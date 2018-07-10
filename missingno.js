@@ -37,9 +37,12 @@ const callback = (mutations) => {
         };
       });
     });
-    // Finally, filter out images without alt text and add the annotations
     targetImgs
+      // Filter out images without alt text
       .filter(image => image.alt !== '')
+      // Filter out emoji images which do have alt text, but we don't want them
+      .filter(image => !Array.from(image.classList).includes('Emoji'))
+      // Finally add the annotation!
       .forEach(addAnotation);
   });
 };
